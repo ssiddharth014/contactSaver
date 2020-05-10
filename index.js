@@ -18,7 +18,7 @@ const passportLocal= require('./config/passport-local-strategy');
 
 //const passportGoogle =require('./config/passport-google-oauth2-strategy');
  
-const MongoStore=require('connect-Mongo')(session);
+//const MongoStore=require('connect-Mongo');
 
 //const chatServer=require('http').Server(app);
 
@@ -43,7 +43,15 @@ app.set('layout extractScripts',true);
 
 // middlewaare 
 // mongo store us used to store the session  cookie in the db
-
+app.use(session({
+    name:'contactsaver',
+    secret:"blahsomething",
+    saveUnintialized:false,
+    resave:false,
+    cookie:{
+        maxAge:(100 * 60 *100)
+    }
+}));
 
 
 app.use(passport.initialize());
