@@ -18,7 +18,8 @@ const passportLocal= require('./config/passport-local-strategy');
 
 //const passportGoogle =require('./config/passport-google-oauth2-strategy');
  
-const MongoStore=require('connect-Mongo') (session);
+const MongoStore=require('connect-Mongo');
+const storage= MongoStore(session);
 
 //const chatServer=require('http').Server(app);
 
@@ -51,7 +52,7 @@ app.use(session({
     cookie:{
         maxAge:(100 * 60 *100)
     },
-    store:new MongoStore(
+    store:new storage(
         {
             mongooseConnection:db,
             autoRemove:'disabled'
