@@ -18,7 +18,7 @@ const passportLocal= require('./config/passport-local-strategy');
 
 //const passportGoogle =require('./config/passport-google-oauth2-strategy');
  
-//const MongoStore=require('connect-Mongo');
+const MongoStore=require('connect-Mongo') (session);
 
 //const chatServer=require('http').Server(app);
 
@@ -50,7 +50,16 @@ app.use(session({
     resave:false,
     cookie:{
         maxAge:(100 * 60 *100)
-    }
+    },
+    store:new MongoStore(
+        {
+            mongooseConnection:db,
+            autoRemove:'disabled'
+        },
+        function(err){
+            console.log(err||'connect mongodb set up ok');
+        }
+    )
 }));
 
 
