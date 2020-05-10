@@ -43,24 +43,7 @@ app.set('layout extractScripts',true);
 
 // middlewaare 
 // mongo store us used to store the session  cookie in the db
-app.use(session({
-    name:'contactsaver',
-    secret:"blahsomething",
-    saveUnintialized:false,
-    resave:false,
-    cookie:{
-        maxAge:(100 * 60 *100)
-    },
-    store:new MongoStore(
-        {
-            url: 'mongodb+srv://contact:contact@contact-u0win.mongodb.net/test?retryWrites=true&w=majority',
-            autoRemove:'disabled'
-        },
-        function(err){
-            console.log(err||'connect mongodb set up ok');
-        }
-    )
-}));
+
 
 
 app.use(passport.initialize());
