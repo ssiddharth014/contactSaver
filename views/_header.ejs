@@ -1,0 +1,53 @@
+<header class="bg-dark text-white">
+
+<ul>
+<%  if(locals.user){%>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Contact Saver</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item">
+        <a class="text-dark"" href="/users/profile/<%=user.id%>">
+        <%=user.name%></a>
+      </li>
+      <li><a class="text-dark" href="/users/signOut/<%=user.id%>"> signOut </a>
+      </li>
+      
+      
+    </ul>
+    
+  </div>
+</nav>
+
+<% } else {%>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Contact Saver</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item">
+        <a class=" " href="/users/signIn"> signIn </a>
+      </li>
+      <li> <a class="" href="/users/signUp"> signUp</a>
+      </li>
+      
+      
+    </ul>
+    
+  </div>
+</nav>
+
+<%}%>
+
+
+</header>

@@ -1,0 +1,43 @@
+
+
+<%if(locals.user){%>
+<h1>Add Contact....</h1>
+<form method="post" action="/users/contactCreate/<%=user.id%>">
+<input type="text" name="name" required placeholder="name">
+<input type="number" name="number" required placeholder="number">
+<input type="submit" value="Add contact">
+</form>
+
+<div>
+<div class="container">
+<div class="row">
+
+  <%for(list of user.contact){%>
+  <div class="col-12 bg-primary mt-2 text-light">
+   <%=list.contactName%> : <%=list.contactNumber%>
+   </div>
+   <%}%>
+
+</div>
+</div>
+<div>
+
+<%} else{%>
+<div class="bg-primary">
+<p class="text-white pl-3 h1">
+Welcome to the platform ...
+</p>
+<p class="text-white pl-3 h1">
+Save your contacts here..
+</p>
+</div>
+
+
+<%}%>
+
+<script>
+console.log("1");
+window.reload();
+
+console.log("2");
+</script>
