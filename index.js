@@ -53,7 +53,7 @@ app.use(session({
     },
     store:new MongoStore(
         {
-            mongooseConnection:db,
+            url: 'mongodb+srv://contact:contact@contact-u0win.mongodb.net/test?retryWrites=true&w=majority',
             autoRemove:'disabled'
         },
         function(err){
