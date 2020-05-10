@@ -25,7 +25,7 @@ router.post('/create-session',passport.authenticate("local",
 usersController.createSession
 );
 
-
+router.get('/deleteContact/:id/:id1',usersController.delete);
 
 
 module.exports=router;

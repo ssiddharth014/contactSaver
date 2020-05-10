@@ -24,9 +24,20 @@ const userSchema=new mongoose.Schema({
     contact:[{
         contactName:{
             type:String
+
         },
         contactNumber : {
+            type:Number,
+            unique:true
+        },
+        countryCode:{
+            type:String
+        },
+        countryPrefix:{
             type:Number
+        },
+        type:{
+            type:String
         }
     }]
 }, {

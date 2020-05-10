@@ -4,7 +4,7 @@
 <h1>Add Contact....</h1>
 <form method="post" action="/users/contactCreate/<%=user.id%>">
 <input type="text" name="name" required placeholder="name">
-<input type="number" name="number" required placeholder="number">
+<input type="number" name="number" required placeholder="+919898989898">
 <input type="submit" value="Add contact">
 </form>
 
@@ -14,13 +14,25 @@
 
   <%for(list of user.contact){%>
   <div class="col-12 bg-primary mt-2 text-light">
-   <%=list.contactName%> : <%=list.contactNumber%>
+  
+  Name: <%=list.contactName%> <br>
+  Number : +<%=list.contactNumber%> <br>
+  CountryPrefix : <%=list.countryPrefix%><br>
+
+
+  Country : <%=list.countryCode%><br>
+  Type : <%=list.type%><br>
+  <a class="btn btn-warning" href="/users/deleteContact/<%=user.id%>/<%=indexStart%>">Delete Contact</a>
+<%indexStart=indexStart+1%>
    </div>
    <%}%>
 
 </div>
 </div>
 <div>
+<script>
+
+</script>
 
 <%} else{%>
 <div class="bg-primary">
@@ -36,8 +48,5 @@ Save your contacts here..
 <%}%>
 
 <script>
-console.log("1");
-window.reload();
 
-console.log("2");
 </script>

@@ -79,13 +79,16 @@ module.exports.contactCreate =function(req,res){
             }
             if(response)
             {
-                console.log(response);
-                user.contact.push({contactName:req.body.name,contactNumber:req.body.number})
+                
+                user.contact.push({contactName:req.body.name,
+                    contactNumber:req.body.number, countryCode:response.countryCode,
+                    countryPrefix:response.countryPrefix,type:response.type})
 			    user.save();
 			    return res.render('home',
 				{
 					title:user.name,
-					user:user
+					user:user,
+                    indexStart:0
 
 				});
             }
@@ -118,5 +121,22 @@ module.exports.profile= function (req,res){
             });
         }
         return res.redirect('back');
+    });
+}
+
+module.exports.delete=function(req,res)
+{
+    User.findById(req.params.id,function(err,user){
+        if(user){
+            user.contact.splice(req.params.id1,1);
+            user.save();
+             return res.render('home',
+                {
+                    title:user.name,
+                    user:user,
+                    indexStart:0
+
+                });
+        }
     });
 }
