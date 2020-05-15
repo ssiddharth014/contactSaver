@@ -16,14 +16,7 @@ const passport=require('passport');
 
 const passportLocal= require('./config/passport-local-strategy');
 
-//const passportGoogle =require('./config/passport-google-oauth2-strategy');
- 
-const MongoStore=require('connect-Mongo');
-const storage= MongoStore(session);
-
-//const chatServer=require('http').Server(app);
-
-//const chatSockets =require('./config/chat_sockets').chatSockets(chatServer);
+//const passportJWT = require('./config/passport-jwt-strategy');
 
 //middleware for post request
 app.use(express.urlencoded());
@@ -51,7 +44,7 @@ app.use(session({
     resave:false,
     cookie:{
         maxAge:(100 * 60 *100)
-    },
+    }/*,
     store:new storage(
         {
             mongooseConnection:db,
@@ -60,7 +53,7 @@ app.use(session({
         function(err){
             console.log(err||'connect mongodb set up ok');
         }
-    )
+    )*/
 }));
 
 
@@ -73,7 +66,7 @@ app.use(passport.setAuthenticatedUser);
 
 app.use('/',require('./routers/index'));
 
-app.use('/users',(require('./routers/users')));
+
 //6
 app.listen(port,function(err,){
 

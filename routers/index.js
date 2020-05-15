@@ -19,10 +19,9 @@ const homeController=require('../controllers/home_controller');
 //5
 router.get('/',homeController.home);
 //
-//router.use('/users',require('./users'));
+router.use('/users',(require('./users')));
+router.use('/api',require('./api'));
 
-//for any other router access from here
-//router.use('/routerName',require('./routerFile'))
 //3
 module.exports=router;
 
